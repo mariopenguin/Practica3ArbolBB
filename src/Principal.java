@@ -12,8 +12,8 @@ public class Principal {
         Alumno alumno7 = new Alumno("","",1);
         arbol.insertar(7,alumno);arbol.insertar(2,alumno1); arbol.insertar(3,alumno2);arbol.insertar(4,alumno3);
         arbol.insertar(5,alumno4);arbol.insertar(10,alumno5);arbol.insertar(8,alumno6);arbol.insertar(9,alumno7);arbol.insertar(11,alumno8);
-        arbol.postOrden();
-        System.out.println(arbol.calificacionMedia()+"    "+arbol.numElem());
+        //arbol.postOrden();
+        System.out.println("Media "+arbol.calificacionMedia()+" Numero de elementos "+arbol.numElem());
         arbol.maxCalif();
     }
 }

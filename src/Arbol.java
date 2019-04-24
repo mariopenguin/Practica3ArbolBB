@@ -104,23 +104,24 @@ public class Arbol {
     public float calificacionMedia(){
 
 
-        return calificacionRec(raiz,0)/numElem();
+        return calificacionRec(raiz)/numElem();
     }
 
-    private float calificacionRec(NodoArbol nodoArbol, int num){
+    private float calificacionRec(NodoArbol nodoArbol){
 
         if (nodoArbol==null){
             return 0;
         }
        else{
-           return calificacionRec(nodoArbol.getIz(),num+1)+calificacionRec(nodoArbol.getDe(),num+1)+(float) nodoArbol.getDato().getCalificacion();
+           return calificacionRec(nodoArbol.getIz())+calificacionRec(nodoArbol.getDe())+(float) nodoArbol.getDato().getCalificacion();
         }
     }
 
     public void maxCalif(){
         Alumno mejor;
         mejor = maxCalifRec(raiz,raiz);
-        System.out.println(mejor.getNombre()+mejor.getCalificacion());
+        System.out.println("---Maxima calificacion---");
+        System.out.println(mejor.getNombre()+" "+mejor.getCalificacion());
     }
     private Alumno maxCalifRec(NodoArbol nodo,NodoArbol mejor){
         if (nodo!=null){
