@@ -22,7 +22,7 @@ public class Arbol {
         if (nodo != null) {
             postOrden(nodo.getIz()); // Izquierda
             postOrden(nodo.getDe()); // Derecha
-            System.out.print(nodo.getClave() + " "); // Nodo
+            System.out.println(nodo.toString()); // Nodo
         }
     }
     public void postOrden() {
@@ -121,7 +121,7 @@ public class Arbol {
         Alumno mejor;
         mejor = maxCalifRec(raiz,raiz);
         System.out.println("---Maxima calificacion---");
-        System.out.println(mejor.getNombre()+" "+mejor.getCalificacion());
+        System.out.println(mejor.toString());
     }
     private Alumno maxCalifRec(NodoArbol nodo,NodoArbol mejor){
         if (nodo!=null){

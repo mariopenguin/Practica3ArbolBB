@@ -47,4 +47,8 @@ public class NodoArbol {
 		this.dato = dato;
 	}
 
+	public String toString(){
+		return clave+" "+dato.toString();
+	}
+
 }

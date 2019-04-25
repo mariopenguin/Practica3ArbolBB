@@ -43,4 +43,8 @@ public class Alumno {
     public void mostrarAlumno() {
         System.out.println (apellidos + ", "+ nombre+" (" + calificacion + ")");
     }
+
+    public String toString() {
+        return nombre +" "+apellidos+" "+calificacion;
+    }
 }
