@@ -42,4 +42,12 @@ public class Cola {
         return resultado;
 		
 	}
+	public int numElem(){
+		int num =0;
+		while (!this.colaVacia()){
+			this.desencolar();
+			num++;
+		}
+		return num;
+	}
 }

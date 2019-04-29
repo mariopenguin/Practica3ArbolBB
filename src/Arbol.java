@@ -82,16 +82,7 @@ public class Arbol {
 
 
 
-    public int numElem(){
-        Cola cola = new Cola();
-        numElemRec(raiz,cola);
-        int num =0;
-        while (!cola.colaVacia()){
-            cola.desencolar();
-            num++;
-        }
-        return num;
-    }
+
     private void numElemRec(NodoArbol nodo,Cola cola){
         if(nodo!=null){
             cola.encolar(nodo);
@@ -102,18 +93,20 @@ public class Arbol {
     }
 
     public float calificacionMedia(){
+        Cola cola = new Cola();
 
-
-        return calificacionRec(raiz)/numElem();
+        return calificacionRec(raiz,cola)/cola.numElem();
     }
 
-    private float calificacionRec(NodoArbol nodoArbol){
+    private float calificacionRec(NodoArbol nodoArbol,Cola cola){
 
         if (nodoArbol==null){
             return 0;
         }
        else{
-           return calificacionRec(nodoArbol.getIz())+calificacionRec(nodoArbol.getDe())+(float) nodoArbol.getDato().getCalificacion();
+           cola.encolar(nodoArbol);
+
+           return calificacionRec(nodoArbol.getIz(),cola)+calificacionRec(nodoArbol.getDe(),cola)+(float) nodoArbol.getDato().getCalificacion();
         }
     }
 
