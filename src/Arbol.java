@@ -8,7 +8,7 @@ public class Arbol {
     // Escribe las claves del árbol binario de raiz a en preorden.
     private void preOrden(NodoArbol nodo) {
         if (nodo != null) {
-            System.out.print (nodo.getClave() + " "); // Nodo
+            System.out.println (nodo.toString()); // Nodo
             preOrden(nodo.getIz()); // Izquierda
             preOrden(nodo.getDe()); // Derecha
         }
@@ -33,7 +33,7 @@ public class Arbol {
     private void ordenCentral(NodoArbol nodo) {
         if (nodo != null) {
             ordenCentral(nodo.getIz()); // Izquierda
-            System.out.print(nodo.getClave() + " "); // Nodo
+            System.out.println(nodo.toString() + " "); // Nodo
             ordenCentral(nodo.getDe()); // Derecha
         }
     }
@@ -48,7 +48,7 @@ public class Arbol {
             c.encolar(p);
         while (!c.colaVacia()) {
             p = c.desencolar();
-            System.out.print(p.getClave() + " ");
+            System.out.println(p.toString() + " ");
             if (p.getIz() != null)
                 c.encolar(p.getIz());
             if (p.getDe() != null)
@@ -83,21 +83,14 @@ public class Arbol {
 
 
 
-    private void numElemRec(NodoArbol nodo,Cola cola){
-        if(nodo!=null){
-            cola.encolar(nodo);
-            numElemRec(nodo.getIz(),cola);
-            numElemRec(nodo.getDe(),cola);
-        }
-
-    }
+    //Calculo la media contando mediante una cola el numero de elementos (tambien podria haberse implementado con un atributo mas de la clase)
+    // o una clase auxiliar para almacenar el dato
 
     public float calificacionMedia(){
         Cola cola = new Cola();
 
         return calificacionRec(raiz,cola)/cola.numElem();
     }
-
     private float calificacionRec(NodoArbol nodoArbol,Cola cola){
 
         if (nodoArbol==null){
@@ -105,10 +98,12 @@ public class Arbol {
         }
        else{
            cola.encolar(nodoArbol);
-
            return calificacionRec(nodoArbol.getIz(),cola)+calificacionRec(nodoArbol.getDe(),cola)+(float) nodoArbol.getDato().getCalificacion();
         }
     }
+
+
+    //Calculo el alumno con la mejor calificacion
 
     public void maxCalif(){
         Alumno mejor;

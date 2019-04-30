@@ -44,8 +44,12 @@ public class Cola {
 	}
 	public int numElem(){
 		int num =0;
-		while (!this.colaVacia()){
-			this.desencolar();
+		NodoCola aux = fin;
+		while (principio!=aux){
+			this.encolar(this.desencolar());
+			num++;
+		}
+		if (principio==aux){
 			num++;
 		}
 		return num;
